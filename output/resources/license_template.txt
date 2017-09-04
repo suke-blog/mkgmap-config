@@ -1,0 +1,6 @@
+Map data (c) OpenStreetMap contributors
+http://www.openstreetmap.org/
+
+Map data licenced under Open Data Commons Open Database License (ODbL)
+See www.openstreetmap.org/copyright
+

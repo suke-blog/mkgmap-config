@@ -1,0 +1,10 @@
+railway=station [0x1101f resolution 22]
+shop=bicycle [0x2f0f resolution 22]
+shop=convenience [0x10f0e resolution 23]
+
+*=* { deletealltags }
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+name=* { name '${name}' }
+include 'inc/address';

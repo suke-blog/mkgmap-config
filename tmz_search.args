@@ -1,0 +1,28 @@
+#mapname:80000001
+#code-page:932
+lower-case
+country-name:JAPAN
+region-name:JAPAN
+region-abbr:JP1
+country-abbr:JP
+#overview-mapname:80000000
+family-id:42
+family-name:"Japan OSM Search"
+series-name:"Search data"
+description:"Search data for stations, and convenience stores"
+route
+name-tag-list:name:en,name:fr,brand,name:ja_rm,name:ja_kana,int_name,name
+drive-on-left
+remove-short-arcs
+add-pois-to-areas
+generate-sea:extend-sea-sectors,close-gaps=6000
+style-file:..\styles\mystyle_search
+gmapsupp
+index
+#tdbfile
+nsis
+license-file:resources\license_template.txt
+max-jobs
+reduce-point-density=4.0
+reduce-point-density-polygon=8.0
+draw-priority=0
