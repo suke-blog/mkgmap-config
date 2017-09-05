@@ -11,7 +11,7 @@ rem SRTM resolution. possible value is 1 or 3. 1:SRTM-1,3:SRTM-3.
 set SRTM=1
 
 rem specify contour line step size in meters.
-set CONTOUR_STEP=20
+set CONTOUR_STEP=10
 
 rem pecify a string of two comma seperated integers for major and medium elevation categories.
 set CONTOUR_LINE_CAT=500,50
