@@ -1,35 +1,47 @@
 rem 等高線なしの地図のみ作るときは1、等高線ありの地図のみ作るときは2、両方作るときは0
-set TARGET_TYPE=1
+set TARGET_TYPE=2
 
+set BASE_DIR=%~dp0
 set SOURCE_URI=http://download.geofabrik.de/asia/japan-latest.osm.pbf
-set MAP_FILE_ORG=C:\map_data\japan.osm.pbf
-set DIC_FILE=C:\kakasi\share\kakasi\SKK-JISYO.geo C:\kakasi\share\kakasi\SKK-JISYO.station
-set SPLITTER=java -Xmx2000M -jar "C:\map_tool\splitter-r580\splitter.jar"
-set MKGMAP=java -Xmx2000M -jar "C:\map_tool\mkgmap-r3773\mkgmap.jar"
+set MAP_FILE_ORG=%BASE_DIR%\..\map_data\japan-latest.osm.pbf
+set DIC_FILE=%BASE_DIR%\..\kakasi-dic\SKK-JISYO.geo %BASE_DIR%\..\kakasi-dic\SKK-JISYO.station
+set KANWADICTPATH=%BASE_DIR%\..\kakasi\share\kakasi\kanwadict
+set ITAIJIDICTPATH=%BASE_DIR%\..\kakasi\share\kakasi\itaijidict
+set SPLITTER=java -Xmx2000M -jar "%BASE_DIR%\..\splitter\splitter.jar"
+set MKGMAP=java -Xmx2000M -jar "%BASE_DIR%\..\mkgmap\mkgmap.jar"
 set TMPFILE=tmp.dat
-set PATH=%PATH%;C:gnuwin32\bin;C:\map_tool\7-Zip;C:\usr\local\kakasi\bin;C:\map_tool
+set PATH=%PATH%;%BASE_DIR%\..\;%BASE_DIR%\..\kakasi\bin;
 set MKGMAPARGS=template2.args
 set MKGMAP_SEARCHARGS=template3.args
 set MAPID_PREFIX=6331
 set MAPID_SEARCH_PREFIX=6332
+
+@echo off
+echo 'Hit any key to continue...'
+pause
+
+cd %BASE_DIR%
 
 if "%1"=="" goto get_from_server
 
 set MAP_FILE_ORG=%1
 goto start_convert
 
+
 :get_from_server
 rem #Get osm file
-wget --progress=dot:mega -O %MAP_FILE_ORG% %SOURCE_URI%
+pushd ..\map_data
+wget --progress=dot:mega --timestamping %SOURCE_URI%
+popd
+
 
 :start_convert
-
 rem #Go to output directory
 mkdir output
 cd output
 
 rem #Clean up old files
-for %%i in (*.osm.pbf) do (
+for %%i in (*.osm) do (
   del %%i
 )
 for %%i in (%MAPID_PREFIX%*.img) do (
@@ -41,17 +53,17 @@ for %%i in (%MAPID_SEARCH_PREFIX%*.img) do (
 if exist gmapsupp.img del gmapsupp.img
 
 rem #Exclude empty contours
-set CONTOUR_DIR="..\contour\"
-if exist %CONTOUR_DIR% (
-  pushd %CONTOUR_DIR%
-  setlocal enabledelayedexpansion
-  for %%i in (5327*.osm) do (
-    set contfile=%%i
-    if %%~zi leq 150 rename !contfile! !contfile:.osm=.osm.skip!
-  )
-  endlocal
-  popd
-)
+rem set CONTOUR_DIR="..\contour\"
+rem if exist %CONTOUR_DIR% (
+rem  pushd %CONTOUR_DIR%
+rem  setlocal enabledelayedexpansion
+rem  for %%i in (5327*.osm.pbf) do (
+rem    set contfile=%%i
+rem    if %%~zi leq 150 rename !contfile! !contfile:.osm=.osm.skip!
+rem  )
+rem  endlocal
+rem  popd
+rem )
 
 rem #Split file
 copy ..\areas.list .
@@ -76,7 +88,7 @@ if "%TARGET_TYPE%" == "0" (
   %MKGMAP% -c japan.args ..\tmz.typ
   if exist gmapsupp_1.zip del gmapsupp_1.zip
   7z.exe a gmapsupp_1.zip gmapsupp.img gmapsupp_search.img osmmap_license.txt
-  %MKGMAP% -c ..\tmz.args %MAPID_PREFIX%*.img ..\tmz.typ ..\contour\5327*.osm
+  %MKGMAP% -c ..\tmz.args %MAPID_PREFIX%*.img ..\tmz.typ ..\contour\5327*.osm.pbf
   if exist gmapsupp_1cntr.zip del gmapsupp_1cntr.zip
   7z.exe a gmapsupp_1cntr.zip gmapsupp.img gmapsupp_search.img osmmap_license.txt
 )
@@ -88,7 +100,7 @@ if "%TARGET_TYPE%" == "1" (
 )
 
 if "%TARGET_TYPE%" == "2" (
-  %MKGMAP% -c japan.args ..\tmz.typ ..\contour\5327*.osm
+  %MKGMAP% -c japan.args ..\tmz.typ ..\contour\5327*.osm.pbf
   if exist gmapsupp_1cntr.zip del gmapsupp_1cntr.zip
   7z.exe a gmapsupp_1cntr.zip gmapsupp.img osmmap_license.txt
 )
