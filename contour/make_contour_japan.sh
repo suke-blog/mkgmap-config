@@ -17,8 +17,8 @@ CONTOUR_LINE_CAT=500,50
 
 # ---<Earthdata Account>---------------
 # username and password for earchdata login.
-EARTHDATA_USER=test
-EARTHDATA_PASSWORD=test
+EARTHDATA_USER=
+EARTHDATA_PASSWORD=
 
 
 
