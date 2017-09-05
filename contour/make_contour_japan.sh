@@ -17,8 +17,8 @@ CONTOUR_LINE_CAT=500,50
 
 # ---<Earthdata Account>---------------
 # username and password for earchdata login.
-EARTHDATA_USER=keisuke.horii
-EARTHDATA_PASSWORD=Hogemoge2nasa
+EARTHDATA_USER=
+EARTHDATA_PASSWORD=
 
 
 
