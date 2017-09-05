@@ -30,8 +30,8 @@ goto start_convert
 
 :get_from_server
 rem #Get osm file
-pushd ../map_data
-wget --progress=dot:mega --timestamping %SOURCE_URL%
+pushd ..\map_data
+wget --progress=dot:mega --timestamping %SOURCE_URI%
 popd
 
 
