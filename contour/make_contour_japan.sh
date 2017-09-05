@@ -10,7 +10,7 @@ JOBS=2
 SRTM=1
 
 # specify contour line step size in meters.
-CONTOUR_STEP=20
+CONTOUR_STEP=10
 
 # pecify a string of two comma seperated integers for major and medium elevation categories.
 CONTOUR_LINE_CAT=500,50
