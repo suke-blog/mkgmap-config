@@ -1,0 +1,8 @@
+*~
+*.org
+*.img
+*.osm
+*.pbf
+*.roman
+output/*
+
