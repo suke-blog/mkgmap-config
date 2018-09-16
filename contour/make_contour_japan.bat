@@ -1,18 +1,30 @@
+rem generate contour script
+rem 2017-09-04
 
-set SRTM2OSM="C:\map_tool\Srtm2Osm-mybuild_141207\Srtm2Osm\Srtm2Osm.exe"
-set SRTM_ARGS=-step 20 -cat 500 100 -large
+@echo off
 
-SETLOCAL ENABLEDELAYEDEXPANSION
-set /a file_num = 53270000
+set PHYGHTMAP_PATH="phyghtmap"
+set JOBS=2
 
-for /F "tokens=1,2,3,4" %%i in (tile_list.txt) do (
-  set /a file_num+=1
-  echo box=%%i %%j %%k %%l
-  echo file=!file_num!
-  rem # download and convert to osm
-  %SRTM2OSM% -bounds1 %%i %%j %%k %%l -o tmp.osm %SRTM_ARGS%
-  perl modify_coord.pl < tmp.osm > !file_num!.osm
-)
-ENDLOCAL
+rem ---<contor config>-------------------
+rem SRTM resolution. possible value is 1 or 3. 1:SRTM-1,3:SRTM-3.
+set SRTM=1
 
+rem specify contour line step size in meters.
+set CONTOUR_STEP=10
+
+rem pecify a string of two comma seperated integers for major and medium elevation categories.
+set CONTOUR_LINE_CAT=500,50
+
+rem ---<Earthdata Account>---------------
+rem username and password for earchdata login.
+set EARTHDATA_USER=
+set EARTHDATA_PASSWORD=
+
+echo "generate contor script\n"
+echo "<<Press hit any key to continue...>>"
 pause
+
+%PHYGHTMAP_PATH% --pbf --polygon=japan.poly --output-prefix=japan_srtm --srtm=%SRTM% --step=%CONTOUR_STEP% --line-cat=%CONTOUR_LINE_CAT% --start-node-id=20000000000 --start-way-id=10000000000 --write-timestamp --no-zero-contour --earthdata-user=%EARTHDATA_USER% --earthdata-password=%EARTHDATA_PASSWORD% --corrx=0.0005 --corry=0.0005 --jobs=%JOBS%
+
+echo "Complete."

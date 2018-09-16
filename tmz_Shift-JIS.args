@@ -1,0 +1,30 @@
+#mapname:80000001
+code-page:932
+lower-case
+country-name:JAPAN
+region-name:JAPAN
+region-abbr:JP1
+country-abbr:JP
+#overview-mapname:80000000
+family-id:42
+family-name:"Japan OSM Family"
+series-name:"Japan OSM Series"
+description:"Japan OSM"
+route
+name-tag-list:name:ja,name,name:en
+drive-on:left
+remove-short-arcs
+add-pois-to-areas
+generate-sea:extend-sea-sectors,close-gaps=6000
+style-file:../styles/mystyle
+gmapsupp
+index
+#location-autofill:is_in,nearest
+#tdbfile
+nsis
+license-file:resources/license_template.txt
+max-jobs
+reduce-point-density=4.0
+reduce-point-density-polygon=8.0
+draw-priority=1
+transparent
