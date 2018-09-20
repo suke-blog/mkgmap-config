@@ -1,0 +1,29 @@
+railway=station [0x7004 resolution 22]
+shop=bicycle [0x7201 resolution 22]
+
+shop=convenience {add tmp = '${name:en}' | '${name:ja_rm}' | '${name}' | '${name:ja}'; }
+
+shop=convenience & (tmp ~ 'ローソン.*' | tmp ~ 'LAWSON.*' | tmp ~ '[Ll]awson.*' | tmp ~ '[Rr]o-son.*')
+ {name ''}[0x7101 resolution 23]
+shop=convenience & (tmp ~ 'セブンイレブン.*' | tmp ~ '7.*Eleven.*' | tmp ~ '[Ss]even.*[Ee]leven.*' | tmp ~ '[Ss]ebun.*[Ii]rebun.*' | tmp ~ '7.11.*')
+ {name ''}[0x7102 resolution 23]
+shop=convenience & (tmp ~ 'ファミリーマート.*' | tmp ~ '[Ff]amily.*[Mm]art.*' | tmp ~ '[Ff]amiri-?\s*[Mm]a-?to.*')
+ {name ''}[0x7103 resolution 23]
+shop=convenience & (tmp ~ 'サークルK.*' | tmp ~ '[Cc]ircle.*[Kk].*' | tmp ~ '[Ss]a-?kuru.*[Kk].*')
+ {name ''}[0x7105 resolution 23]
+shop=convenience & (tmp ~ 'サンクス.*' | tmp ~ '[Ss]unkus.*' | tmp ~ '[Ss]ankusu.*' | tmp ~ '[Tt]hanks.*')
+ {name ''}[0x7106 resolution 23]
+shop=convenience & (tmp ~ 'ミニストップ.*' | tmp ~ '[Mm]ini.*[Ss]u?top.*' | tmp ~ 'MINI.*STOP.*')
+ {name ''}[0x7107 resolution 23]
+shop=convenience & (tmp ~ 'ココストア.*' | tmp ~ '[Cc]oco.*' | tmp ~ '[Kk]okosutoa.*')
+ {name ''}[0x7109 resolution 23]
+shop=convenience & (tmp ~ 'セイコーマート.*' | tmp ~ '[Ss]ei[ck]o.*[Mm]art.*' | tmp ~ '[Ss]eiko-?\s*[Mm]a-?to.*')
+ {name ''}[0x710a resolution 23]
+shop=convenience & (tmp ~ 'ポプラ.*' | tmp ~ '[Pp]oplar.*' | tmp ~ 'POPLAR.*' | tmp ~ '[Pp]opura.*')
+ {name ''}[0x710b resolution 23]
+shop=convenience & (tmp ~ 'デイリーヤマザキ.*' | tmp ~ '[Dd]aily.*[Yy]amazaki.*' | tmp ~ '[Dd]aily.*YAMAZAKI.*' | tmp ~ '[Dd]eiri.*[Yy]amazaki.*' | tmp ~ '[Yy]amazaki.*[Dd]aily.*' | tmp ~ '[Yy]amazaki.*[Dd]eiri.*')
+ {name ''}[0x710c resolution 23]
+shop=convenience & (tmp ~ 'ヤマザキ.*' | tmp ~ '[Yy]amazaki.*' | tmp ~ '[Yy]\s*[Ss][hy]op.*')
+ {name ''}[0x7108 resolution 23]
+
+shop=convenience [0x7100 resolution 23]
