@@ -1,0 +1,8 @@
+(highway=trunk | highway=primary) & (oneway=yes | oneway=1 | oneway=true) [0x1101c resolution 24 continue]
+(highway=trunk | highway=primary) & (oneway=-1) [0x1101e resolution 24 continue]
+highway=* & !(highway=trunk | highway=primary) & (oneway=yes | oneway=1 | oneway=true) [0x1101d resolution 24 continue]
+highway=* & !(highway=trunk | highway=primary) & (oneway=-1) [0x1101f resolution 24 continue]
+
+#highway=primary & (oneway=yes | oneway=1 | oneway=true) [0x11003 road_class=0 road_speed=3 resolution 24 continue]
+#highway=primary & (oneway=-1) [0x11004 road_class=0 road_speed=3 resolution 24 continue]
+#highway=primary & (oneway=*) [0x03 road_class=0 road_speed=3 resolution 23-19]
