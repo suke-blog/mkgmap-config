@@ -1,7 +1,7 @@
 ; suke_hike.typ
-; Longueur: 10834 octets
-; Fichier TYP compilÃ©     30/09/2018     17:12:29
-; DÃ©compilÃ© le 2018/09/30 Ã  18:01:51
+; Longueur: 10837 octets
+; Fichier TYP compilÃ©     30/09/2018     18:34:03
+; DÃ©compilÃ© le 2018/09/30 Ã  18:42:21
 
 [_id]
 ProductCode=1
@@ -246,7 +246,7 @@ Type=0x16
 UseOrientation=N
 Xpm="32 4 4  1"
 "! c #000000"
-"# c #FFFF00"
+"# c #FFFFFF"
 "3 c #FFFFFF"
 "4 c #000000"
 "################################"
