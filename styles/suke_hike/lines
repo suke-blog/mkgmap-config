@@ -213,10 +213,10 @@ highway=cycleway [0x07 road_class=0 road_speed=1 resolution 23]
 
 # modify 2018.09.11
 #highway=footway|highway=path|highway=steps [0x16 road_class=0 road_speed=0 resolution 23]
-highway=footway [0x16 road_class=0 road_speed=0 resolution 23 default_name 'footway']
+highway=footway [0x16 road_class=0 road_speed=0 resolution 23]
 highway=path & length()>200 [0x0f road_class=0 road_speed=0 resolution 20 continue]
-highway=path [0x16 road_class=0 road_speed=0 resolution 22 default_name 'trail']
-highway=steps [0x16 road_class=0 road_speed=0 resolution 23 default_name 'steps']
+highway=path [0x16 road_class=0 road_speed=0 resolution 22]
+highway=steps [0x16 road_class=0 road_speed=0 resolution 23]
 highway=track [0x0a road_class=0 road_speed=1 resolution 22]
 highway=unsurfaced [0x0a road_class=0 road_speed=1 resolution 22]
 highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=1 resolution 22]
