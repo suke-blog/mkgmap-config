@@ -1,0 +1,110 @@
+; tmz_search.typ
+; Longueur: 5034 octets
+; Fichier TYP compilÃ©     16/11/2014     22:01:46
+; DÃ©compilÃ© le 2018/09/30 Ã  15:23:01
+
+[_id]
+ProductCode=1
+FID=42
+CodePage=1252
+ [End]
+
+;=========== COMMENTAIRES ======
+[_comments]
+[End]
+
+
+
+
+;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
+[_drawOrder]
+[End]
+
+
+
+
+
+;===================== POLYGONES ========================
+
+
+;====================== LINES ===========================
+
+
+;====================== POINTS ==========================
+
+
+[_point]
+Type=0x02f
+SubType=0x0f
+;GRMN_TYPE: Business - Services/GARMIN_DEALERS/Garmin dealer/Non NT
+String1=0x04,Bicycle
+ExtendedLabels=N
+DayXpm="16 11 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #BD65FF"
+"  	c none"
+"          ##    "
+"  ###     #     "
+"  #!#######     "
+"  !!###!!!#     "
+"  ###!##!#!###  "
+" #####!#####!## "
+"##!####!###!#!##"
+"#!!#!!#!!#!##!!#"
+"##!!!##  ##!!!##"
+" ##!##    ##!## "
+"  ###      ###  "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x10f
+SubType=0x0e
+;GRMN_TYPE: Business - Shopping/CONVENIENCE_NO_GAS(NT)/Convenience no gas/NT
+String1=0x04,Convenience store
+ExtendedLabels=N
+DayXpm="16 16 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #BD30B4"
+"%	c #E085DA"
+"  	c none"
+"        !       "
+"       !#!      "
+"       !#!      "
+"      !#!       "
+"!!!!!!!#!!!!!!!!"
+"!%############%!"
+"!#!#!!#!!#!!#!#!"
+"!%!#!!#!!#!!#!%!"
+"!%############%!"
+"!#%!#!#!!#!#!%#!"
+"!!#!#!#!!#!#!#! "
+" !%##########%! "
+" !%#!%#!!#%!#%! "
+"  !%!%#!!#%!%!  "
+"  !%########%!  "
+"   !!!!!!!!!!   "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x110
+SubType=0x1f
+;GRMN_TYPE: /TRAIN_STATION(NT)/Train station/NT
+String1=0x04,station
+ExtendedLabels=N
+DayXpm="6 6 4 1"   Colormode=32
+"!	c #FF9500"  alpha=0
+"#	c #FFCD59"  alpha=0
+"%	c #CC8E00"  alpha=0
+"?	c #000000"  alpha=6
+"??????"
+"?##!!?"
+"?#!!!?"
+"?!!!%?"
+"?!!%%?"
+"??????"
+;123456
+[end]
