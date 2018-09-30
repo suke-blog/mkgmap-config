@@ -1,7 +1,7 @@
 ; suke_hike.typ
 ; Longueur: 10834 octets
-; Fichier TYP compilÃ©     13/09/2018     16:09:41
-; DÃ©compilÃ© le 2018/09/30 Ã  15:18:00
+; Fichier TYP compilÃ©     30/09/2018     17:12:29
+; DÃ©compilÃ© le 2018/09/30 Ã  18:01:51
 
 [_id]
 ProductCode=1
@@ -372,7 +372,9 @@ Xpm="32 1 4  1"
 "4 c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 [end]
 
 
@@ -383,7 +385,9 @@ UseOrientation=N
 LineWidth=1
 Xpm="0 0 1 0"
 "1 c #9A0000"
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 [end]
 
 
@@ -396,7 +400,9 @@ Xpm="32 1 2  1"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 [end]
 
 

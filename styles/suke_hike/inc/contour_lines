@@ -12,21 +12,29 @@
 #	{ name '${ele|conv:m=>ft}'; }
 #	[0x21 resolution 20]
 
-# modify 2018.09.11
-contour=elevation | contour_ext=elevation
-        { name '${ele|conv:m=>ft}'; }
-# 2km-800m interval=200m
+
+# interval=200m
 contour=elevation & ele ~'.*[02468]00'
+  { name ''; }
 	[0x22 resolution 20 continue]
-# 500-200m interval=50m
+# interval=50m
 contour=elevation & ele ~'.*[05]0'
-	[0x22 resolution 21-22 continue]
-#contour=elevation & ele ~'.*00'
-#	[0x21 resolution 21-22 continue]
-# 300-50m full
+  { name ''; }
+	[0x22 resolution 21 continue]
+# interval=20m
+contour=elevation & ele ~'.*[02468]00'
+  { name '${ele|conv:m=>ft}'; }
+  [0x22 resolution 22 continue]
+contour=elevation & ele ~'.*[02468]0'
+  { name ''; }
+  [0x22 resolution 22 continue]
+# interval=10m
 contour=elevation & contour_ext=elevation_minor
+  { name ''; }
 	[0x20 resolution 23-24]
 contour=elevation & contour_ext=elevation_medium
+  { name '${ele|conv:m=>ft}'; }
 	[0x21 resolution 23-24]
 contour=elevation & contour_ext=elevation_major
+  { name '${ele|conv:m=>ft}'; }
 	[0x21 resolution 23-24]
