@@ -4,7 +4,7 @@ set -u
 
 usage_exit() {
   echo "This tool make garmim maps."
-  echo "Usage: $0 -m mkgmap_path -s style_path [-u] [-j] [-a] [-t] [-d dem_dir] [-l licence_dir] [-o output_dir] [-n mapname] split_map_directory typ_path" 1>&2
+  echo "Usage: $0 -m mkgmap_path -s style_path [-u] [-j] [-a] [-t] [-d dem_dir] [-l licence_dir] [-o output_dir] [-n mapname] [-e \"description\"] split_map_directory typ_path" 1>&2
   echo
   echo -e "-m\tSet mkgmap.jar location"
   echo -e "-u\tMake UTF8 map"
@@ -15,6 +15,7 @@ usage_exit() {
   echo -e "-l\tSet licence directory. must contain licence.txt and copyright.txt"
   echo -e "-o\tSet output directory prefix. default is 'output'. "
   echo -e "-n\tSet map name."
+  echo -e "-e\tSet description."
   echo -e "-h\tShow help"
   exit 1
 }
@@ -52,9 +53,10 @@ PATH_TARGET=""
 PATH_TYP=""
 PATH_OUTPUT="output"
 NAME_MAP=""
+DESCRIPTION=`LANG=C date`
 
 # check args
-while getopts m:s:ujatd:l:o:n:h OPT
+while getopts m:s:ujatd:l:o:n:e:h OPT
 do
   case $OPT in
     m)
@@ -88,6 +90,9 @@ do
       ;;
     n)
       NAME_MAP=$OPTARG
+      ;;
+    e)
+      DESCRIPTION=`echo ${OPTARG} | sed 's/"//g'`
       ;;
     h)
       usage_exit
@@ -148,24 +153,24 @@ pushd $PATH_TARGET
 # UTF8
 if [ -n "$OPT_UTF8" ]; then
   info "run mkgmap. Encode:UTF8."
-  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_UTF8} --output-dir=${PATH_OUTPUT}_utf8 -c template.args ${PATH_TYP}
+  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_UTF8} --output-dir=${PATH_OUTPUT}_utf8 -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
 fi
 
 # Shift-JIS
 if [ -n "$OPT_SJIS" ]; then
   info "run mkgmap. Encode:Shift-JIS."
-  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_SJIS} --output-dir=${PATH_OUTPUT}_sjis -c template.args ${PATH_TYP}
+  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_SJIS} --output-dir=${PATH_OUTPUT}_sjis -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
 fi
 
 # ascii
 if [ -n "$OPT_ASCII" ]; then
   info "run mkgmap. Encode:ASCII."
-  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_ASCII} --output-dir=${PATH_OUTPUT}_ascii -c template_roman.args ${PATH_TYP}
+  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_ASCII} --output-dir=${PATH_OUTPUT}_ascii -c template_roman.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
 fi
 
-info "${0} Finished."
+info "${0} Finished. TARGET=${PATH_TARGET}"
 
 popd
