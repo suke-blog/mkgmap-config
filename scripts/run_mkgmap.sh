@@ -4,7 +4,7 @@ set -u
 
 usage_exit() {
   echo "This tool make garmim maps."
-  echo "Usage: $0 -m mkgmap_path -s style_path [-u] [-j] [-a] [-t] [-d dem_dir] [-l licence_dir] [-o output_dir] split_map_directory typ_path" 1>&2
+  echo "Usage: $0 -m mkgmap_path -s style_path [-u] [-j] [-a] [-t] [-d dem_dir] [-l licence_dir] [-o output_dir] [-n mapname] split_map_directory typ_path" 1>&2
   echo
   echo -e "-m\tSet mkgmap.jar location"
   echo -e "-u\tMake UTF8 map"
@@ -14,6 +14,7 @@ usage_exit() {
   echo -e "-d\tSet DEM(*.hgt) directory. If this option set, build map with internal DEM."
   echo -e "-l\tSet licence directory. must contain licence.txt and copyright.txt"
   echo -e "-o\tSet output directory prefix. default is 'output'. "
+  echo -e "-n\tSet map name."
   echo -e "-h\tShow help"
   exit 1
 }
@@ -50,9 +51,10 @@ PATH_LICENCE=""
 PATH_TARGET=""
 PATH_TYP=""
 PATH_OUTPUT="output"
+NAME_MAP=""
 
 # check args
-while getopts m:s:ujatd:l:o:h OPT
+while getopts m:s:ujatd:l:o:n:h OPT
 do
   case $OPT in
     m)
@@ -83,6 +85,9 @@ do
       ;;
     o)
       PATH_OUTPUT=$OPTARG
+      ;;
+    n)
+      NAME_MAP=$OPTARG
       ;;
     h)
       usage_exit
@@ -125,6 +130,10 @@ fi
 
 if [ -n "$OPT_LICENCE" ]; then
   PARAM_COMMON="${PARAM_COMMON} --license-file=${PATH_LICENCE}/license.txt  --copyright-file=${PATH_LICENCE}/copyright.txt"
+fi
+
+if [ -n "$NAME_MAP" ]; then
+  PARAM_COMMON="${PARAM_COMMON} --family-name=\"${NAME_MAP}\" --series-name=\"${NAME_MAP}\""
 fi
 
 PARAM_UTF8="--code-page=65001 --lower-case --name-tag-list=name:ja,name,name:en"
