@@ -1,7 +1,7 @@
 ; suke_hike.typ
 ; Longueur: 10837 octets
-; Fichier TYP compilÃ©     30/09/2018     18:34:03
-; DÃ©compilÃ© le 2018/09/30 Ã  18:42:21
+; Fichier TYP compilÃ©     10/06/2018     14:33:43
+; DÃ©compilÃ© le 2018/10/06 Ã  16:10:36
 
 [_id]
 ProductCode=1
@@ -403,6 +403,19 @@ Xpm="32 1 2  1"
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
+[end]
+
+
+[_line]
+Type=0x23
+;GRMN_TYPE: Contour Lines/MINOR_BATHY_CONTOUR/Minor bathymetric, or depth, contour/Non NT
+UseOrientation=Y
+Xpm="32 1 2  1"
+"! c #A4895B"
+"  c none"
+"!!  !!  !!  !!  !!  !!  !!  !!  "
+;12345678901234567890123456789012
+ExtendedLabels=N
 [end]
 
 
