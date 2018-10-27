@@ -1,7 +1,7 @@
 ; suke_hike.typ
 ; Longueur: 11206 octets
-; Fichier TYP compilÃ©     27/10/2018     23:28:10
-; DÃ©compilÃ© le 2018/10/28 Ã  0:01:58
+; Fichier TYP compilÃ©     28/10/2018     08:35:24
+; DÃ©compilÃ© le 2018/10/28 Ã  8:35:28
 
 [_id]
 ProductCode=1
@@ -1342,6 +1342,19 @@ DayXpm="16 11 13 1"   Colormode=16
 "  #5!#   #!5#   "
 "   ##     ##    "
 ;1234567890123456
+[end]
+
+
+[_point]
+Type=0x02c
+SubType=0x0b
+;GRMN_TYPE: Business - Attractions/PLACE_OF_WORSHIP/Religious place of worship/Non NT
+ExtendedLabels=N
+DayXpm="1 1 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+" "
+;1
 [end]
 
 
@@ -2796,7 +2809,10 @@ DayXpm="24 20 3 1"   Colormode=16
 Type=0x115
 SubType=0x04
 ;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_5/User customizable point type/Non NT, NT
-ExtendedLabels=N
+String1=0x00,
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 DayXpm="16 16 3 1"   Colormode=16
 "!	c #101010"
 "#	c #FFFFFF"
@@ -2825,7 +2841,10 @@ DayXpm="16 16 3 1"   Colormode=16
 Type=0x115
 SubType=0x05
 ;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_6/User customizable point type/Non NT, NT
-ExtendedLabels=N
+String1=0x00,
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 DayXpm="16 16 3 1"   Colormode=16
 "!	c #101010"
 "#	c #FFFFFF"
@@ -2854,7 +2873,10 @@ DayXpm="16 16 3 1"   Colormode=16
 Type=0x115
 SubType=0x06
 ;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_7/User customizable point type/Non NT, NT
-ExtendedLabels=N
+String1=0x00,
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 DayXpm="12 16 3 1"   Colormode=16
 "!	c #101010"
 "#	c #FFFFFF"
