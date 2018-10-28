@@ -1,7 +1,7 @@
 ; suke_hike.typ
-; Longueur: 11206 octets
-; Fichier TYP compilÃ©     28/10/2018     08:35:24
-; DÃ©compilÃ© le 2018/10/28 Ã  8:35:28
+; Longueur: 11231 octets
+; Fichier TYP compilÃ©     28/10/2018     09:16:31
+; DÃ©compilÃ© le 2018/10/28 Ã  9:42:10
 
 [_id]
 ProductCode=1
@@ -25,6 +25,16 @@ CodePage=1252
 
 
 ;===================== POLYGONES ========================
+
+
+[_polygon]
+Type=0x13
+;GRMN_TYPE: Large Manmade Areas/GENERIC_MANMADE/Other or generic manmade area, such as a building/Non NT
+ExtendedLabels=N
+Xpm="0 0 2 0"
+"1 c #D8D478"
+"2 c #280028"
+[end]
 
 
 ;====================== LINES ===========================
