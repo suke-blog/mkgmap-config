@@ -1,7 +1,7 @@
 ; suke_hike.typ
-; Longueur: 11241 octets
-; Fichier TYP compilÃ©     28/10/2018     10:18:17
-; DÃ©compilÃ© le 2018/10/28 Ã  10:26:06
+; Longueur: 11302 octets
+; Fichier TYP compilÃ©     28/10/2018     11:13:21
+; DÃ©compilÃ© le 2018/10/28 Ã  11:29:08
 
 [_id]
 ProductCode=1
@@ -1642,6 +1642,36 @@ DayXpm="12 12 3 1"   Colormode=0
 
 
 [_point]
+Type=0x030
+SubType=0x08
+;GRMN_TYPE: Business - Emergency and Government/FIRE_DEPT/Fire department/Non NT
+ExtendedLabels=N
+DayXpm="16 17 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+" ##          ## "
+"#!!#        #!!#"
+"#!!#        #!!#"
+"#!!!#       #!!#"
+" #!!!#     #!!!#"
+" #!!!!#####!!!# "
+"  #!!!!!!!!!!#  "
+"   ##!!!!!!!#   "
+"     ##!!###    "
+"      #!!#      "
+"      #!!#      "
+"      #!!#      "
+"      #!!#      "
+"      #!!#      "
+"      #!!#      "
+"      #!!#      "
+"       ##       "
+;1234567890123456
+[end]
+
+
+[_point]
 Type=0x04c
 SubType=0x00
 ;GRMN_TYPE: Misc. Points of Interest/INFORMATION/Information/Non NT, NT
@@ -2935,4 +2965,65 @@ DayXpm="12 16 3 1"   Colormode=16
 "    #!!#    "
 "     ##     "
 ;123456789012
+[end]
+
+
+[_point]
+Type=0x115
+SubType=0x07
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_8/User customizable point type/Non NT, NT
+String1=0x25,
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 16 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"    ########    "
+"   #!!!!!!!!#   "
+"   #!!!!!!!!#   "
+"   #!!####!!#   "
+"   #!!#  #!!#   "
+" ###!!#  #!!### "
+"#!!!!!#  #!!!!!#"
+"#!!!!!#  #!!!!!#"
+"#!!###    ###!!#"
+"#!!#        #!!#"
+"#!!#        #!!#"
+"#!!#        #!!#"
+"#!!#        #!!#"
+"#!!#        #!!#"
+"#!!#        #!!#"
+" ##          ## "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x115
+SubType=0x08
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_9/User customizable point type/Non NT, NT
+String1=0x25,
+ExtendedLabels=N
+DayXpm="17 15 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"       ##        "
+"      #!!#       "
+"     #!!!!#      "
+"     #!!!!#      "
+"      #!!#       "
+"       ##        "
+"                 "
+"                 "
+"                 "
+"  ##         ##  "
+" #!!#       #!!# "
+"#!!!!#     #!!!!#"
+"#!!!!#     #!!!!#"
+" #!!#       #!!# "
+"  ##         ##  "
+;12345678901234567
 [end]
