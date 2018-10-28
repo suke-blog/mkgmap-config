@@ -1,7 +1,7 @@
 ; suke_hike.typ
-; Longueur: 11302 octets
-; Fichier TYP compilÃ©     28/10/2018     11:13:21
-; DÃ©compilÃ© le 2018/10/28 Ã  11:29:08
+; Longueur: 11561 octets
+; Fichier TYP compilÃ©     28/10/2018     12:38:05
+; DÃ©compilÃ© le 2018/10/28 Ã  12:42:50
 
 [_id]
 ProductCode=1
@@ -2742,34 +2742,31 @@ DayXpm="16 11 3 1"   Colormode=16
 Type=0x115
 SubType=0x00
 ;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_1/User customizable point type/Non NT, NT
-String1=0x25,
-ExtendedLabels=N
-DayXpm="16 16 9 1"   Colormode=16
-"!	c #7DB6D0"
-"#	c #4AA8D4"
-"%	c #2A9ED5"
-"?	c #1E9AD7"
-"$	c #0894D9"
-"*	c #0C95D9"
-"=	c #0092DA"
-"1	c #0995DA"
+String1=0x04,alpine hut
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 16 4 1"   Colormode=16
+"!	c #101010"
+"#	c #FFFFFF"
+"%	c #414141"
 "  	c none"
-"       11       "
-"      1111      "
-"    11111111    "
-"  11111  11111  "
-"1===1       1111"
-"=*=1         =$="
-"  =1   #?    =1 "
-"  =1  #!#    =1 "
-"  =1 ##11    =1 "
-"  =1 %#11  # =1 "
-"  =1  !1!111 =1 "
-"  =1  #1# 1  =1 "
-"  =1  1#1 1  =1 "
-"  =1  1 1 1  =1 "
-"  =1  1 1 1  =1 "
-"  =1 11 111  =1 "
+"      #!!#      "
+"     #!!!!#     "
+"    #!!!!!!#    "
+"   #!!!!!!!!#   "
+" ##!!!!!!!!!!## "
+"#!!!!!!!!!!!!!!#"
+"#!!!!!!!!!!!!!!#"
+" ##!##%%%###!## "
+"  #!##%%%###!#  "
+"  #!###%####!#  "
+"  #!#%%%####!#  "
+"  #!###%%%##!#  "
+"  #!##%%%###!#  "
+"  #!#%%#%###!#  "
+"  #!!!!!!!!!!#  "
+"  ############  "
 ;1234567890123456
 [end]
 
@@ -2778,28 +2775,30 @@ DayXpm="16 16 9 1"   Colormode=16
 Type=0x115
 SubType=0x01
 ;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_2/User customizable point type/Non NT, NT
-String1=0x25,
-ExtendedLabels=N
+String1=0x04,wilderness hut
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 DayXpm="16 16 3 1"   Colormode=16
-"!	c #1498D8"
-"#	c #0092DA"
+"!	c #101010"
+"#	c #FFFFFF"
 "  	c none"
-"         ##     "
-"         ##     "
-"       ####     "
-"     ######     "
-"   ##########   "
-" ####!   ###### "
-" ###     ## ####"
-"  ##     ##  ###"
-"  ##     ##  ## "
-"  ##     ##  ## "
-"  ##     ##  ## "
-"  ## ######  ## "
-"  ## ######  ## "
-"  ## ##  ##  ## "
-"  ## ##  ##  ## "
-"  ## ######  ## "
+"      #!!#      "
+"     #!!!!#     "
+"    #!!!!!!#    "
+"   #!!!!!!!!#   "
+" ##!!!!!!!!!!## "
+"#!!!!!!!!!!!!!!#"
+"#!!!!!!!!!!!!!!#"
+" ##!########!## "
+"  #!########!#  "
+"  #!########!#  "
+"  #!########!#  "
+"  #!########!#  "
+"  #!########!#  "
+"  #!########!#  "
+"  #!!!!!!!!!!#  "
+"  ############  "
 ;1234567890123456
 [end]
 
@@ -2808,34 +2807,31 @@ DayXpm="16 16 3 1"   Colormode=16
 Type=0x115
 SubType=0x02
 ;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_3/User customizable point type/Non NT, NT
-String1=0x25,
-ExtendedLabels=N
-DayXpm="14 14 10 1"   Colormode=16
-"!	c #734A08"
-"#	c #AD9B7B"
-"%	c #C1B5A2"
-"?	c #C3B9A7"
-"$	c #CCC5B9"
-"*	c #CEC7BC"
-"=	c #CFC9BE"
-"1	c #D2CDC3"
-"2	c #D3CEC5"
+String1=0x04,Shelter
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 16 3 1"   Colormode=16
+"!	c #101010"
+"#	c #FFFFFF"
 "  	c none"
-"   ##  ##  ## "
-"   #   #   #  "
-"##  ##  ##  ##"
-"#   #   #   # "
-"  #       #   "
-" ##   !! ##   "
-"   *!!!!!!$   "
-" 2!!!!%?!!!!1 "
-" !!!=    =!!! "
-"   !      !   "
-"   !      !   "
-"   !      !   "
-"   !      !   "
-"   !      !   "
-;12345678901234
+"      #!!#      "
+"     #!!!!#     "
+"    #!!!!!!#    "
+"   #!!!##!!!#   "
+" ##!!!####!!!## "
+"##!!!######!!!##"
+"#!!!!!!!!!!!!!!#"
+" ##!########!## "
+"  #!#      #!#  "
+"  #!#      #!#  "
+"  #!#      #!#  "
+"  #!#      #!#  "
+"  #!#      #!#  "
+"  #!#      #!#  "
+"  #!#      #!#  "
+"  ###      ###  "
+;1234567890123456
 [end]
 
 
@@ -3026,4 +3022,25 @@ DayXpm="17 15 3 1"   Colormode=16
 " #!!#       #!!# "
 "  ##         ##  "
 ;12345678901234567
+[end]
+
+
+[_point]
+Type=0x115
+SubType=0x09
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_10/User customizable point type/Non NT, NT
+ExtendedLabels=N
+DayXpm="8 8 3 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #000000"
+"  	c none"
+"  !##!  "
+" !####! "
+"!######!"
+"!######!"
+" !####! "
+" !####! "
+" !####! "
+"  !!!!  "
+;12345678
 [end]
