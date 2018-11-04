@@ -76,7 +76,7 @@ else
 fi
 
 # try split osm to tiles
-for res in 12 13 14; do
+for res in 11 12 13 14; do
   info "start process. resolution=${res}"
   java -Xmx${PARAM_JAVA_XMX}G -jar $PATH_SPLITTER ${PARAM_COMMON} --resolution=${res} ${PATH_OSM} &
   pid_splitter=$!
