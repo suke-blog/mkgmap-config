@@ -70,9 +70,9 @@ PARAM_COMMON="--keep-complete=true --search-limit=10000000 --max-areas=1024 --ma
 # check filesize (larger than 2GByte or not)
 filesize=`wc -c < ${PATH_OSM}`
 if [ $filesize -gt 2000000000 ]; then
-  $PARAM_COMMON="${PARAM_COMMON} --num-tiles=2000"
+  PARAM_COMMON="${PARAM_COMMON} --num-tiles=2000"
 else
-  $PARAM_COMMON="${PARAM_COMMON} --max-nodes=1600000"
+  PARAM_COMMON="${PARAM_COMMON} --max-nodes=1600000"
 fi
 
 # try split osm to tiles
