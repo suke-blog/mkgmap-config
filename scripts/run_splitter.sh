@@ -62,10 +62,10 @@ PATH_OUTPUT=$2
 
 mkdir -p ${PATH_OUTPUT}
 
-PARAM_JAVA_XMX=8
+PARAM_JAVA_XMX=26
 PARAM_RESOLUTION=13
 
-PARAM_COMMON="--keep-complete=true --search-limit=10000000 --max-areas=1024 --mapid=63500001 --output-dir=${PATH_OUTPUT}"
+PARAM_COMMON=" --keep-complete=true --search-limit=10000000 --max-areas=2048 --mapid=63500001 --output-dir=${PATH_OUTPUT}"
 
 # check filesize (larger than 2GByte or not)
 filesize=`wc -c < ${PATH_OSM}`
