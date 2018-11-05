@@ -1,0 +1,21 @@
+# mkgmpa job
+#
+# format
+# SPLITTER, mapid, osm_path, output_path, convert_to_roman[y/n]
+# MAP,Map name, description, style_name, typ_name, coding[u,j,a], transparent[y/n], DEM[y/n]
+#
+SPLITTER,63500001,./work/test.osm.pbf,./work/split-test,y
+MAP,./work/split-japan-dem10
+JOB,JAPAN-OSM-DEM10B,,suke_hike,suke_hike.typ,uja,n,y
+MAP,./work/split-japan-dem5
+JOB,JAPAN-OSM-DEM5,,suke_hike,suke_hike.typ,u,n,y
+MAP,./work/split-japan-dem10-contour
+JOB,JAPAN-CONTOUR-DEM10B,,suke_hike,suke_hike.typ,a,y,y
+MAP,./work/split-japan-dem5-contour
+JOB,JAPAN-CONTOUR-DEM5A/5B/10B,,suke_hike,suke_hike.typ,a,y,y
+MAP,./work/split-japan-dem5-contour-5m-hokkaido
+JOB,JAPAN-CONTOUR-DEM5A/5B/10B-5m,,suke_hike,suke_hike.typ,a,y,y
+MAP,./work/split-japan-dem5-contour-5m-honshu
+JOB,JAPAN-CONTOUR-DEM5A/5B/10B-5m,,suke_hike,suke_hike.typ,a,y,y
+MAP,./work/split-japan-dem5-contour-5m-kyushu-sikoku-okinawa
+JOB,JAPAN-CONTOUR-DEM5A/5B/10B-5m,,suke_hike,suke_hike.typ,a,y,y
