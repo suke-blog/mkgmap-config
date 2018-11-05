@@ -36,7 +36,7 @@ contour=elevation & contour_ext=elevation_minor & ele ~'.*5'
   { name ''; }
   [0x23 resolution 23-24]
 contour=elevation & contour_ext=elevation_medium
-  { name ''; }
+  { name '${ele|conv:m=>ft}'; }
 	[0x21 resolution 23-24]
 contour=elevation & contour_ext=elevation_major
   { name '${ele|conv:m=>ft}'; }
