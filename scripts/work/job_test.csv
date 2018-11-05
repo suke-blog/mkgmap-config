@@ -6,4 +6,4 @@
 #
 SPLITTER,63500001,./work/mtfuji.osm.pbf,./work/split-mtfuji,y
 MAP,./work/split-mtfuji
-MKGMAP,JAPAN-TEST-MAP,,suke_hike,suke_hike.typ,ua,n,y
+MKGMAP,JAPAN-TEST-MAP,,suke_hike,suke_hike.typ,a,n,y

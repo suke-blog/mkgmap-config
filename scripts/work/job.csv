@@ -4,18 +4,38 @@
 # SPLITTER, mapid, osm_path, output_path, convert_to_roman[y/n]
 # MAP,Map name, description, style_name, typ_name, coding[u,j,a], transparent[y/n], DEM[y/n]
 #
-SPLITTER,63500001,./work/test.osm.pbf,./work/split-test,y
-MAP,./work/split-japan-dem10
-JOB,JAPAN-OSM-DEM10B,,suke_hike,suke_hike.typ,uja,n,y
-MAP,./work/split-japan-dem5
-JOB,JAPAN-OSM-DEM5,,suke_hike,suke_hike.typ,u,n,y
-MAP,./work/split-japan-dem10-contour
-JOB,JAPAN-CONTOUR-DEM10B,,suke_hike,suke_hike.typ,a,y,y
-MAP,./work/split-japan-dem5-contour
-JOB,JAPAN-CONTOUR-DEM5A/5B/10B,,suke_hike,suke_hike.typ,a,y,y
-MAP,./work/split-japan-dem5-contour-5m-hokkaido
-JOB,JAPAN-CONTOUR-DEM5A/5B/10B-5m,,suke_hike,suke_hike.typ,a,y,y
-MAP,./work/split-japan-dem5-contour-5m-honshu
-JOB,JAPAN-CONTOUR-DEM5A/5B/10B-5m,,suke_hike,suke_hike.typ,a,y,y
-MAP,./work/split-japan-dem5-contour-5m-kyushu-sikoku-okinawa
-JOB,JAPAN-CONTOUR-DEM5A/5B/10B-5m,,suke_hike,suke_hike.typ,a,y,y
+
+# splitter--------------------------------
+# for OSM with contour
+SPLITTER,63500001,./work/japan-osm-with-contour-dem10.osm.pbf,./work/japan-osm-with-contour-dem10,y
+SPLITTER,63510001,./work/japan-osm-with-contour-dem5.osm.pbf,./work/japan-osm-with-contour-dem5,y
+# for contour only
+SPLITTER,63600001,./work/japan-contour-dem10b.osm.pbf,./work/japan-contour-only-dem10,n
+SPLITTER,63610001,./work/japan-contour-dem5.osm.pbf,./work/japan-contour-only-dem5,n
+# for contour only(5m)
+SPLITTER,63620001,./work/japan-contour-dem5-hokkaido-5m.osm.pbf,./work/japan-contour-only-dem5-hokkaido-5m,n
+SPLITTER,63623001,./work/japan-contour-dem5-honshu-5m.osm.pbf,./work/japan-contour-only-dem5-honshu-5m,n
+SPLITTER,63626001,./work/japan-contour-dem5-kyushu-sikoku-okinawa-5m.osm.pbf,./work/japan-contour-only-dem5-kyushu-sikoku-okinawa-5m,n
+
+
+# mkgmap----------------------------------
+MAP,./work/japan-osm-with-contour-dem10
+MKGMAP,JAPAN-OSM-with-contour(DEM10B),,suke_hike,suke_hike.typ,uja,n,y
+
+MAP,./work/japan-osm-with-contour-dem5
+MKGMAP,JAPAN-OSM-with-contour(DEM5A/5B/10B),,suke_hike,suke_hike.typ,u,n,y
+
+MAP,./work/japan-contour-only-dem10
+MKGMAP,JAPAN-contour-only(DEM10B),,suke_hike,suke_hike.typ,a,y,y
+
+MAP,./work/japan-contour-only-dem5
+MKGMAP,JAPAN-contour-only(DEM5A/5B/10B),,suke_hike,suke_hike.typ,a,y,y
+
+MAP,./work/japan-contour-only-dem5-hokkaido-5m
+MKGMAP,JAPAN-contour-only-5m(DEM5A/5B/10B),,suke_hike,suke_hike.typ,a,y,y
+
+MAP,./work/japan-contour-only-dem5-honshu-5m
+MKGMAP,JAPAN-contour-only-5m(DEM5A/5B/10B),,suke_hike,suke_hike.typ,a,y,y
+
+MAP,./work/japan-contour-only-dem5-kyushu-sikoku-okinawa-5m
+MKGMAP,JAPAN-contour-only-5m(DEM5A/5B/10B),,suke_hike,suke_hike.typ,a,y,y
