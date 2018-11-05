@@ -30,7 +30,7 @@ contour=elevation & ele ~'.*[02468]0'
   [0x22 resolution 22 continue]
 # interval=5 or 10m
 contour=elevation & contour_ext=elevation_minor & ele ~'.*0'
-  { name ''; }
+  { name '${ele|conv:m=>ft}'; }
 	[0x20 resolution 23-24]
 contour=elevation & contour_ext=elevation_minor & ele ~'.*5'
   { name ''; }
