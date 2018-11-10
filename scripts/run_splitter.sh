@@ -7,6 +7,7 @@ usage_exit() {
   echo "Usage: $0 -m splitter_path osm_path output_dir" 1>&2
   echo
   echo -e "-m\tSet splitter.jar location"
+  echo -i "-i\tSet MAP_ID"
   exit 1
 }
 
@@ -30,15 +31,19 @@ error() {
 #[ $# -ne 3 ] && usage_exit
 
 PATH_SPLITTER="mkgmap-splitter"
+MAP_ID="63500001"
 PATH_OSM=
 PATH_OUTPUT=
 
 # check args
-while getopts m: OPT
+while getopts m:i: OPT
 do
   case $OPT in
     m)
       PATH_SPLITTER=$OPTARG
+      ;;
+    i)
+      MAP_ID=$OPTARG
       ;;
     h)
       usage_exit
@@ -65,7 +70,7 @@ mkdir -p ${PATH_OUTPUT}
 PARAM_JAVA_XMX=26
 PARAM_RESOLUTION=13
 
-PARAM_COMMON=" --keep-complete=true --search-limit=10000000 --max-areas=2048 --mapid=63500001 --output-dir=${PATH_OUTPUT}"
+PARAM_COMMON=" --keep-complete=true --search-limit=10000000 --max-areas=2048 --mapid=${MAP_ID} --output-dir=${PATH_OUTPUT}"
 
 # check filesize (larger than 2GByte or not)
 filesize=`wc -c < ${PATH_OSM}`
@@ -77,7 +82,7 @@ fi
 
 # try split osm to tiles
 for res in 11 12 13 14; do
-  info "start process. resolution=${res}"
+  info "start process. mapid=${MAP_ID}, resolution=${res}"
   java -Xmx${PARAM_JAVA_XMX}G -jar $PATH_SPLITTER ${PARAM_COMMON} --resolution=${res} ${PATH_OSM} &
   pid_splitter=$!
 
