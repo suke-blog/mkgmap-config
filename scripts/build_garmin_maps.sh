@@ -119,22 +119,21 @@ do
       # SPLITTER, mapid, osm_path, output_path, convert_to_roman[y/n]
       SPLIT_MAPID=$VALUE
       SPLIT_OSM=`echo ${line} | cut -d ',' -f 3`
-      SPLIT_OUTPUT=`echo ${line} | cut -d ',' -f 4`
-      SPLIT_ROMAN=`echo ${line} | cut -d ',' -f 5`
+      SPLIT_ROMAN=`echo ${line} | cut -d ',' -f 4`
 
-      info "splitting OSM:${SPLIT_OSM} output:${SPLIT_OUTPUT}"
+      info "splitting OSM:${SPLIT_OSM} output:${PATH_MAP}"
       echo "debug::SPLITTER ${line}"
 
       PARAMS="-m ${PATH_SPLITTER}"
       [ "$SPLIT_MAPID" != "" ] && PARAMS="$PARAMS -i $SPLIT_MAPID"
 
-      ./run_splitter.sh $PARAMS $SPLIT_OSM $SPLIT_OUTPUT
-      #echo "./run_splitter.sh $PARAMS $SPLIT_OSM $SPLIT_OUTPUT"
+      ./run_splitter.sh $PARAMS $SPLIT_OSM $PATH_MAP
+      #echo "./run_splitter.sh $PARAMS $SPLIT_OSM $PATH_MAP"
 
       # convert to roman
       if [ "$SPLIT_ROMAN" == "y" ]; then
-        ./run_kakasi.sh $SPLIT_OUTPUT
-        #echo "./run_kakasi.sh $SPLIT_OUTPUT"
+        ./run_kakasi.sh $PATH_MAP
+        #echo "./run_kakasi.sh $PATH_MAP"
       fi
 
       ;;
