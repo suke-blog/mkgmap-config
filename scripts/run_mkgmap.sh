@@ -169,6 +169,7 @@ if [ -n "$OPT_UTF8" ]; then
   info "run mkgmap. Encode:UTF8."
   java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_UTF8} --output-dir=${PATH_OUTPUT}_utf8 -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
+  mv ${PATH_OUTPUT}_utf8/gmapsupp.img ${PATH_OUTPUT}_utf8/gmapsupp-${NAME_MAP}-utf8.img
 fi
 
 # Shift-JIS
@@ -176,6 +177,7 @@ if [ -n "$OPT_SJIS" ]; then
   info "run mkgmap. Encode:Shift-JIS."
   java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_SJIS} --output-dir=${PATH_OUTPUT}_sjis -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
+  mv ${PATH_OUTPUT}_sjis/gmapsupp.img ${PATH_OUTPUT}_sjis/gmapsupp-${NAME_MAP}-sjis.img
 fi
 
 # ascii
@@ -183,6 +185,7 @@ if [ -n "$OPT_ASCII" ]; then
   info "run mkgmap. Encode:ASCII."
   java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_ASCII} --output-dir=${PATH_OUTPUT}_ascii -c template_roman.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
+  mv ${PATH_OUTPUT}_ascii/gmapsupp.img ${PATH_OUTPUT}_ascii/gmapsupp-${NAME_MAP}-ascii.img
 fi
 
 info "${0} Finished. TARGET=${PATH_TARGET}"
