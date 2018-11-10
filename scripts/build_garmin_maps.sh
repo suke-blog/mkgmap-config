@@ -82,19 +82,23 @@ do
     "OUTPUT"  ) DIR_OUTPUT=$VALUE ;;
     "MKGMAP"     )
       # parse format
-      # JOB, Map name, description, style_name, typ_name, coding[u/j/a], transparent[y/n], DEM[y/n]
-      MAP_NAME=$VALUE
-      MAP_DESCRIPTION=`echo ${line} | cut -d ',' -f 3`
-      MAP_STYLE=`echo ${line} | cut -d ',' -f 4`
-      MAP_TYP=`echo ${line} | cut -d ',' -f 5`
-      MAP_CODING=`echo ${line} | cut -d ',' -f 6`
-      MAP_TRANSPARENT=`echo ${line} | cut -d ',' -f 7`
-      MAP_DEM=`echo ${line} | cut -d ',' -f 8`
+      # JOB, FamilyID, ProductID, Map name, description, style_name, typ_name, coding[u/j/a], transparent[y/n], DEM[y/n]
+      MAP_FAMILY_ID=`echo ${line} | cut -d ',' -f 2`
+      MAP_PRODUCT_ID=`echo ${line} | cut -d ',' -f 3`
+      MAP_NAME=`echo ${line} | cut -d ',' -f 4`
+      MAP_DESCRIPTION=`echo ${line} | cut -d ',' -f 5`
+      MAP_STYLE=`echo ${line} | cut -d ',' -f 6`
+      MAP_TYP=`echo ${line} | cut -d ',' -f 7`
+      MAP_CODING=`echo ${line} | cut -d ',' -f 8`
+      MAP_TRANSPARENT=`echo ${line} | cut -d ',' -f 9`
+      MAP_DEM=`echo ${line} | cut -d ',' -f 10`
 
       info "processing MAP_NAME:${MAP_NAME}..."
       echo "debug::line ${line}"
 
       PARAMS="-m ${PATH_MKGMAP} -${MAP_CODING} -s ${PATH_CONFIG}/styles/${MAP_STYLE} -n ${MAP_NAME} -o ${DIR_OUTPUT}"
+      [ "$MAP_FAMILY_ID" != "" ] && PARAMS="$PARAMS -f $MAP_FAMILY_ID"
+      [ "$MAP_PRODUCT_ID" != "" ] && PARAMS="$PARAMS -p $MAP_PRODUCT_ID"
       [ "$MAP_DESCRIPTION" != "" ] && PARAMS="$PARAMS -e $MAP_DESCRIPTION"
       [ "$MAP_TRANSPARENT" == "y" ] && PARAMS="$PARAMS -t"
       [ "$MAP_DEM" == "y" ] && PARAMS="$PARAMS -d $PATH_DEM"
@@ -121,9 +125,11 @@ do
       info "splitting OSM:${SPLIT_OSM} output:${SPLIT_OUTPUT}"
       echo "debug::SPLITTER ${line}"
 
-      PARAMS="-m ${PATH_SPLITTER} ${SPLIT_OSM} ${SPLIT_OUTPUT}"
-      ./run_splitter.sh $PARAMS
-      #echo "./run_splitter.sh $PARAMS"
+      PARAMS="-m ${PATH_SPLITTER}"
+      [ "$SPLIT_MAPID" != "" ] && PARAMS="$PARAMS -i $SPLIT_MAPID"
+
+      ./run_splitter.sh $PARAMS $SPLIT_OSM $SPLIT_OUTPUT
+      #echo "./run_splitter.sh $PARAMS $SPLIT_OSM $SPLIT_OUTPUT"
 
       # convert to roman
       if [ "$SPLIT_ROMAN" == "y" ]; then
