@@ -56,7 +56,7 @@ NAME_MAP=""
 DESCRIPTION=`LANG=C date`
 
 # check args
-while getopts m:s:ujatd:l:o:n:e:h OPT
+while getopts m:s:ujatd:l:o:f:p:n:e:h OPT
 do
   case $OPT in
     m)
@@ -87,6 +87,12 @@ do
       ;;
     o)
       PATH_OUTPUT=$OPTARG
+      ;;
+    f)
+      FAMILY_ID=$OPTARG
+      ;;
+    p)
+      PRODUCT_ID=$OPTARG
       ;;
     n)
       NAME_MAP=$OPTARG
@@ -139,6 +145,14 @@ fi
 
 if [ -n "$NAME_MAP" ]; then
   PARAM_COMMON="${PARAM_COMMON} --family-name=\"${NAME_MAP}\" --series-name=\"${NAME_MAP}\""
+fi
+
+if [ -n "$FAMILY_ID" ]; then
+  PARAM_COMMON="${PARAM_COMMON} --family-id=${FAMILY_ID}"
+fi
+
+if [ -n "$PRODUCT_ID" ]; then
+  PARAM_COMMON="${PARAM_COMMON} --product-id=${PRODUCT_ID}"
 fi
 
 PARAM_UTF8="--code-page=65001 --lower-case --name-tag-list=name:ja,name,name:en"
