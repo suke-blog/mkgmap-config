@@ -7,3 +7,5 @@
 *.roman
 split-*
 output/*
+scripts/work/*
+!.gitkeep
