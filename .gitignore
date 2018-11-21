@@ -2,7 +2,8 @@
 *.org
 *.img
 *.osm
+*.o5m
 *.pbf
 *.roman
+split-*
 output/*
-

@@ -1,0 +1,42 @@
+# #Contours take their name from the elevation setting.
+# contour=elevation & contour_ext=elevation_minor
+# 	{ name '${ele|conv:m=>ft}'; }
+# 	[0x20 resolution 22]
+# contour=elevation & contour_ext=elevation_medium
+# 	{ name '${ele|conv:m=>ft}'; }
+# 	[0x21 resolution 20]
+# contour=elevation & contour_ext=elevation_major
+# 	{ name '${ele|conv:m=>ft}'; }
+# 	[0x22 resolution 20]
+# contour=elevation | contour_ext=elevation
+# 	{ name '${ele|conv:m=>ft}'; }
+# 	[0x21 resolution 20]
+
+
+# interval=200m
+# contour=elevation & contour_ext=elevation_major & ele ~'.*[02468]+00'
+contour=elevation & contour_ext=elevation_major
+  { name '${ele|conv:m=>ft}'; }
+	# [0x22 resolution 20 continue ]
+	[0x22 resolution 18 continue ]
+# interval=100m
+contour=elevation & contour_ext=elevation_major
+  { name '${ele|conv:m=>ft}'; }
+	[0x22 resolution 21 continue ]
+# interval=50m
+contour=elevation & contour_ext=elevation_medium
+  { name '${ele|conv:m=>ft}'; }
+  [0x22 resolution 22 continue ]
+# interval=5 or 10m
+contour=elevation & contour_ext=elevation_major
+  { name '${ele|conv:m=>ft}'; }
+	[0x21 resolution 24]
+contour=elevation & contour_ext=elevation_medium
+  { name '${ele|conv:m=>ft}'; }
+	[0x21 resolution 24]
+contour=elevation & contour_ext=elevation_minor & ele ~'.*0'
+  { name '${ele|conv:m=>ft}'; }
+	[0x20 resolution 24]
+contour=elevation & contour_ext=elevation_minor & ele ~'.*5'
+  { name ''; }
+  [0x23 resolution 24]

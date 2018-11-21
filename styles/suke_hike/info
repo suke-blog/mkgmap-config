@@ -6,7 +6,7 @@
 
 # A short one line description of the style
 #
-summary: mystyle_mod
+summary: suke_hike
 
 # Version of the style itself
 #
@@ -14,6 +14,6 @@ version=1.0
 
 # A longer description of the style.
 description {
-Mystyle_mod 
-modify contour.
+suke_hike.
+for hiking, mountain-climbing.
 }

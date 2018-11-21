@@ -1,0 +1,13 @@
+Map data (c) OpenStreetMap contributors
+http://www.openstreetmap.org/
+
+Map data licenced under Open Data Commons Open Database License (ODbL)
+See www.openstreetmap.org/copyright
+
+DEM data (c) Geospatial Information Authority of Japan(GSI)
+http://www.gsi.go.jp/ENGLISH/index.html
+
+DEM data licenced under Japan Survey Act No.188 of June 3, 1949
+http://www.gsi.go.jp/LAW/2930-2930.html
+
+この地図の作成に当たっては、国土地理院長の承認を得て、同院発行の基盤地図情報を使用した。(承認番号 平30情使、 第610号)

@@ -1,0 +1,10 @@
+# mkgmpa job
+#
+# format
+# SPLITTER, mapid, osm_path, output_path, convert_to_roman[y/n]
+# MKGMAP,Map name, description, style_name, typ_name, coding[u,j,a], transparent[y/n], DEM[y/n]
+#
+MAP,./work/split-mtfuji
+#SPLITTER,63500001,./work/mtfuji.osm.pbf,./work/split-mtfuji,y
+#MKGMAP,6300,1,JAPAN-TEST-MAP,,suke_hike,suke_hike.typ,a,n,y
+MKGMAP,6300,1,JAPAN-TEST-MAP,JAPAN-TEST-MAP-suke_hike,suke_hike,suke_hike_test.typ,a,n,y

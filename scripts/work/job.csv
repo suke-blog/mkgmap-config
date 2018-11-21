@@ -1,0 +1,37 @@
+# mkgmpa job
+#
+# format
+# SPLITTER,mapid,osm_path,convert_to_roman[y/n]
+# MAP,FAMILY_ID,PRODUCT_ID,Map name,description,style_name,typ_name,coding[u,j,a],transparent[y/n],DEM[y/n]
+#
+
+# for OSM with contour
+MAP,./work/japan-osm-with-contour-dem10
+#SPLITTER,63500001,./work/japan-osm-with-contour-dem10.osm.pbf,y
+#MKGMAP,6350,1,JAPAN-OSM-with-contour-DEM10,JAPAN-OSM-with-contour-DEM10-201811,suke_hike,suke_hike.typ,uja,n,y
+
+MAP,./work/japan-osm-with-contour-dem5
+#SPLITTER,63510001,./work/japan-osm-with-contour-dem5.osm.pbf,y
+#MKGMAP,6351,1,JAPAN-OSM-with-contour-DEM5,JAPAN-OSM-with-contour-DEM5-201811,suke_hike,suke_hike.typ,ua,n,y
+
+# for contour only
+MAP,./work/japan-contour-only-dem10
+#SPLITTER,63600001,./work/japan-contour-dem10b.osm.pbf,n
+#MKGMAP,6360,1,JAPAN-contour-only-DEM10,JAPAN-contour-only-DEM10-201811,suke_hike,suke_hike.typ,a,y,y
+
+MAP,./work/japan-contour-only-dem5
+#SPLITTER,63610001,./work/japan-contour-dem5.osm.pbf,n
+#MKGMAP,6361,1,JAPAN-contour-only-DEM5,JAPAN-contour-only-DEM5-201811,suke_hike,suke_hike.typ,a,y,y
+
+# for contour only(5m)
+MAP,./work/japan-contour-only-dem5-5m-hokkaido
+#SPLITTER,63620001,./work/japan-contour-dem5-hokkaido-5m.osm.pbf,n
+#MKGMAP,6362,1,JAPAN-contour-only-DEM5-5m-hokkaido,JAPAN-contour-only-DEM5-5m-hokkaido-201811,suke_hike,suke_hike.typ,a,y,y
+
+MAP,./work/japan-contour-only-dem5-5m-honshu
+#SPLITTER,63623001,./work/japan-contour-dem5-honshu-5m.osm.pbf,n
+#MKGMAP,6363,1,JAPAN-contour-only-DEM5-5m-honshu,JAPAN-contour-only-DEM5-5m-honshu-201811,suke_hike,suke_hike.typ,a,y,y
+
+MAP,./work/japan-contour-only-dem5-5m-kyushu-sikoku-okinawa
+#SPLITTER,63626001,./work/japan-contour-dem5-kyushu-sikoku-okinawa-5m.osm.pbf,n
+MKGMAP,6364,1,JAPAN-contour-only-DEM5-5m-kyushu-sikoku-okinawa,JAPAN-contour-only-DEM5-5m-kyushu-sikoku-201811,suke_hike,suke_hike.typ,a,y,y
