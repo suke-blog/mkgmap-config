@@ -57,10 +57,11 @@ DIR_DATA=${1}
 
 pushd $DIR_DATA
 
-for PATH_FILE in `ls *.test`; do
+for PATH_FILE in `ls *.img`; do
   info "compressing: $PATH_FILE ..."
   #ARCHIVE_FILE=`echo $PATH_FILE | sed 's/\.[^\.]*$//'`
   zip -9 ${PATH_FILE%.*}_$(date -I).zip ${PATH_FILE} license.txt copyright.txt
+  mv $PATH_FILE ${PATH_FILE}.done
 done
 
 popd
