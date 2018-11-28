@@ -132,7 +132,7 @@ if [ -n "$OPT_DEM" ]; then
 fi
 
 # mkgmap parameter
-PARAM_COMMON="--country-name=JAPAN --region-name=JAPAN  --region-abbr=JP1 --country-abbr=JP --route --drive-on=left --remove-short-arcs --add-pois-to-areas  --gmapsupp  --index --tdbfile --nsis --max-jobs  --reduce-point-density=4.0 --reduce-point-density-polygon=8.0  --style-file=${PATH_STYLE}"
+PARAM_COMMON="--country-name=JAPAN --region-name=JAPAN  --region-abbr=JP1 --country-abbr=JP --route --drive-on=left --remove-short-arcs --add-pois-to-areas  --gmapsupp --tdbfile --nsis --max-jobs  --reduce-point-density=4.0 --reduce-point-density-polygon=8.0  --style-file=${PATH_STYLE}"
 
 if [ -f "$PATH_SEA" ]; then
   PARAM_COMMON="${PARAM_COMMON} --precomp-sea=${PATH_SEA}"
