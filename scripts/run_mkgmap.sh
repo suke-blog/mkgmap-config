@@ -56,7 +56,7 @@ NAME_MAP=""
 DESCRIPTION=`LANG=C date`
 
 # check args
-while getopts m:s:ujatd:l:o:f:p:n:e:h OPT
+while getopts m:s:ujat:d:l:o:f:p:n:e:h OPT
 do
   case $OPT in
     m)
@@ -75,7 +75,7 @@ do
       OPT_ASCII=1
       ;;
     t)
-      OPT_TRANSPARENT=1
+      OPT_TRANSPARENT=$OPTARG
       ;;
     d)
       OPT_DEM=1
@@ -149,7 +149,7 @@ if [ -n "$OPT_DEM" ]; then
 fi
 
 if [ -n "$OPT_TRANSPARENT" ]; then
-  PARAM_COMMON="${PARAM_COMMON} --transparent --draw-priority=1"
+  PARAM_COMMON="${PARAM_COMMON} --transparent --draw-priority=${OPT_TRANSPARENT}"
 fi
 
 if [ -n "$OPT_LICENCE" ]; then
