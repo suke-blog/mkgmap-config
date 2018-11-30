@@ -100,7 +100,7 @@ do
       [ "$MAP_FAMILY_ID" != "" ] && PARAMS="$PARAMS -f $MAP_FAMILY_ID"
       [ "$MAP_PRODUCT_ID" != "" ] && PARAMS="$PARAMS -p $MAP_PRODUCT_ID"
       [ "$MAP_DESCRIPTION" != "" ] && PARAMS="$PARAMS -e $MAP_DESCRIPTION"
-      [ "$MAP_TRANSPARENT" == "y" ] && PARAMS="$PARAMS -t"
+      [ "$MAP_TRANSPARENT" != "n" ] && PARAMS="$PARAMS -t $MAP_TRANSPARENT"
       [ "$MAP_DEM" == "y" ] && PARAMS="$PARAMS -d $PATH_DEM"
       [ -d $PATH_LICENSE ] && PARAMS="$PARAMS -l $PATH_LICENSE"
 
