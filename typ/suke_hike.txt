@@ -1,7 +1,7 @@
 ; suke_hike.typ
 ; Longueur: 11943 octets
-; Fichier TYP compilAc     16/11/2018     21:46:58
-; DAccompilAc le 2018/11/21 A? 12:11:39
+; Fichier TYP compilAc     12/01/2018     08:35:45
+; DAccompilAc le 2018/12/01 A? 10:41:13
 
 [_id]
 ProductCode=1
@@ -865,6 +865,73 @@ Xpm="32 13 4  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x01,
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x11101
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_98/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+BorderWidth=1
+Xpm="0 0 4 0"
+"1 c #9C33FF"
+"2 c #340066"
+"3 c #9C33FF"
+"4 c #DCB8FF"
+String1=0x00,Major highway
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x11102
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_99/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+BorderWidth=1
+Xpm="0 0 4 0"
+"1 c #FF4244"
+"2 c #D10000"
+"3 c #FF4244"
+"4 c #FFBDBD"
+String1=0x00,Principal highway
+String2=0x25,kokudo
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x11103
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_100/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=1
+BorderWidth=1
+Xpm="0 0 4 0"
+"1 c #00B21E"
+"2 c #00520E"
+"3 c #00B21E"
+"4 c #CCFFD4"
+String1=0x00,Other highway road
+String2=0x25,chiho(major)
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x11104
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_101/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=1
+BorderWidth=1
+Xpm="0 0 4 0"
+"1 c #EDC62C"
+"2 c #5D4213"
+"3 c #5D4213"
+"4 c #F6EAD5"
+String1=0x00,Arterial road
+String2=0x25,chiho(minor)
 ExtendedLabels=N
 [end]
 
