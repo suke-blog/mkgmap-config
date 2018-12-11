@@ -241,7 +241,7 @@ natural=peak {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6616 resolution 2
 natural=rock [0x6614 resolution 24]
 natural=volcano [0x2c0c resolution 20]
 
-railway=station [0x2f08 resolution 22]
+railway=station | aerialway=station [0x2f08 resolution 22]
 ( public_transport=platform & rail=yes ) | railway=halt [0x2f08 resolution 23]
 public_transport=platform | highway=bus_stop | railway=tram_stop [0x2f17 resolution 24]
 

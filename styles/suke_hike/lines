@@ -261,8 +261,9 @@ railway=platform [0x16 road_class=0 road_speed=0 resolution 23]
 railway=* & (layer<0) [0x14 resolution 22]
 railway=* & (tunnel=yes) [0x14 resolution 22]
 
-#cable-car
-(aerialway=cable_car | aerialway=gondola | aerialway=chair_lift | aerialway=mixed_lift) [0x10e14 resolution 22]
+#cable-car and ski-lift
+(aerialway=cable_car | aerialway=gondola) [0x10e14 resolution 22]
+(aerialway=chair_lift | aerialway=mixed_lift | aerialway=drag_lift | aerialway=t-bar | aerialway=j-bar | aerialway=platter | aerialway=rope_tow) [0x10e15 resolution 24]
 
 route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19]
 

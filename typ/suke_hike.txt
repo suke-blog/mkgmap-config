@@ -1,7 +1,7 @@
 ; suke_hike.typ
-; Longueur: 11943 octets
-; Fichier TYP compilAc     12/01/2018     08:35:45
-; DAccompilAc le 2018/12/01 A? 10:41:13
+; Longueur: 12175 octets
+; Fichier TYP compilÃ©     12/07/2018     14:01:11
+; DÃ©compilÃ© le 2018/12/12 Ã  7:14:49
 
 [_id]
 ProductCode=1
@@ -322,7 +322,7 @@ Xpm="32 5 4  1"
 "                  !             "
 ;12345678901234567890123456789012
 String1=0x00,Route-Ferry
-String2=0x02,FA?hre
+String2=0x02,FÃ¤hre
 ExtendedLabels=N
 [end]
 
@@ -579,20 +579,40 @@ ExtendedLabels=N
 Type=0x10e14
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_21/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 3 4  1"
+Xpm="32 5 4  1"
 "! c #FF40FF"
 "  c none"
 "3 c #FFC0FF"
 "4 c none"
-"!   !   !   !   !   !   !   !   "
+"            !                   "
+"           !!!                  "
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"  !   !   !   !   !   !   !   ! "
+"               !!!              "
+"                !               "
 ;12345678901234567890123456789012
 String1=0x00,cable car
 String2=0x02,Seilbahn
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10e15
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_22/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 3 4  1"
+"! c #FF40FF"
+"  c none"
+"3 c #FFC0FF"
+"4 c none"
+"             !                  "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                 !              "
+;12345678901234567890123456789012
+String1=0x00,ski lift
+ExtendedLabels=N
 [end]
 
 
@@ -640,7 +660,7 @@ Xpm="32 7 4  1"
 " !   !   !   !   !   !   !   !  "
 ;12345678901234567890123456789012
 String1=0x00,bridge
-String2=0x02,BrA?cke
+String2=0x02,BrÃ¼cke
 String3=0x04,bridge
 ExtendedLabels=Y
 FontStyle=Default
@@ -1993,7 +2013,7 @@ DayXpm="13 14 18 2"   Colormode=16
 Type=0x063
 SubType=0x00
 ;GRMN_TYPE: Misc. Points of Interest/SPOT_ELEVATION/Spot elevation/Non NT, NT
-String1=0x02,GebrigspaA?
+String1=0x02,GebrigspaÃŸ
 String2=0x00,mountain pass
 ExtendedLabels=Y
 FontStyle=Default
@@ -2052,7 +2072,7 @@ DayXpm="13 14 5 1"   Colormode=16
 Type=0x064
 SubType=0x06
 ;GRMN_TYPE: Geographical Named Points of Interest/CROSSING/Crossing/Non NT, NT
-String1=0x02,BahnA?bergang
+String1=0x02,BahnÃ¼bergang
 String2=0x00,level crossing
 ExtendedLabels=Y
 FontStyle=Default
@@ -2096,7 +2116,7 @@ Type=0x064
 SubType=0x16
 ;GRMN_TYPE: Geographical Named Points of Interest/SUBDIVISION/Non NT, NT/
 String1=0x00,collapsed building
-String2=0x02,zerstA��rtes GebA?ude
+String2=0x02,zerstÃ¶rtes GebÃ¤ude
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=No
@@ -2130,7 +2150,7 @@ DayXpm="12 12 9 1"   Colormode=32
 Type=0x065
 SubType=0x00
 ;GRMN_TYPE: //
-String1=0x02,FontA?ne
+String1=0x02,FontÃ¤ne
 String2=0x00,fountain
 ExtendedLabels=Y
 FontStyle=Default
@@ -2216,7 +2236,7 @@ Type=0x066
 SubType=0x01
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/ARCH/Arch/Non NT, NT
 String1=0x00,cave
-String2=0x02,HA��hle
+String2=0x02,HÃ¶hle
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=No
