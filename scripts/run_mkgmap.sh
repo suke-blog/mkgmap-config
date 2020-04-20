@@ -56,7 +56,7 @@ NAME_MAP=""
 DESCRIPTION=`LANG=C date`
 
 # check args
-while getopts m:s:ujatd:l:o:f:p:n:e:h OPT
+while getopts m:s:ujat:d:l:o:f:p:n:e:h OPT
 do
   case $OPT in
     m)
@@ -75,7 +75,7 @@ do
       OPT_ASCII=1
       ;;
     t)
-      OPT_TRANSPARENT=1
+      OPT_TRANSPARENT=$OPTARG
       ;;
     d)
       OPT_DEM=1
@@ -116,6 +116,9 @@ shift `expr ${OPTIND} - 1`
 PATH_TARGET=${1}
 PATH_TYP=${2}
 
+PATH_SEA=`readlink -f "./work/sea-latest.zip"`
+PATH_BOUNDS=`readlink -f "./work/bounds-latest.zip"`
+
 # check target directory
 [ ! -d $PATH_TARGET ] && error "target directory not found. TARGET=${PATH_TARGET}"
 [ ! -f "${PATH_TARGET}/template.args" ] && error "template.args not found. "
@@ -129,14 +132,24 @@ if [ -n "$OPT_DEM" ]; then
 fi
 
 # mkgmap parameter
-PARAM_COMMON="--country-name=JAPAN --region-name=JAPAN  --region-abbr=JP1 --country-abbr=JP --route --drive-on=left  --remove-short-arcs --add-pois-to-areas  --generate-sea=extend-sea-sectors,close-gaps=6000 --gmapsupp  --index --tdbfile --nsis --max-jobs  --reduce-point-density=4.0 --reduce-point-density-polygon=8.0  --style-file=${PATH_STYLE}"
+PARAM_COMMON="--country-name=JAPAN --region-name=JAPAN  --region-abbr=JP1 --country-abbr=JP --route --drive-on=left --remove-short-arcs --add-pois-to-areas  --gmapsupp --tdbfile --nsis --max-jobs  --reduce-point-density=4.0 --reduce-point-density-polygon=8.0  --style-file=${PATH_STYLE}"
+
+if [ -f "$PATH_SEA" ]; then
+  PARAM_COMMON="${PARAM_COMMON} --precomp-sea=${PATH_SEA}"
+else
+  PARAM_COMMON="${PARAM_COMMON} --generate-sea=extend-sea-sectors,close-gaps=6000"
+fi
+
+if [ -f "$PATH_BOUNDS" ]; then
+  PARAM_COMMON="${PARAM_COMMON} --bounds=${PATH_BOUNDS}"
+fi
 
 if [ -n "$OPT_DEM" ]; then
   PARAM_COMMON="${PARAM_COMMON} --show-profiles=1 --dem=${PATH_DEM} --dem-dists=3312,13248,26512,53024"
 fi
 
 if [ -n "$OPT_TRANSPARENT" ]; then
-  PARAM_COMMON="${PARAM_COMMON} --transparent --draw-priority=1"
+  PARAM_COMMON="${PARAM_COMMON} --transparent --draw-priority=${OPT_TRANSPARENT}"
 fi
 
 if [ -n "$OPT_LICENCE" ]; then
@@ -167,7 +180,8 @@ pushd $PATH_TARGET
 # UTF8
 if [ -n "$OPT_UTF8" ]; then
   info "run mkgmap. Encode:UTF8."
-  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_UTF8} --output-dir=${PATH_OUTPUT}_utf8 -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
+#  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_UTF8} --output-dir=${PATH_OUTPUT}_utf8 -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
+  java -Xmx32G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_UTF8} --output-dir=${PATH_OUTPUT}_utf8 -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
   mv ${PATH_OUTPUT}_utf8/gmapsupp.img ${PATH_OUTPUT}_utf8/gmapsupp-${NAME_MAP}-utf8.img
 fi
@@ -175,7 +189,7 @@ fi
 # Shift-JIS
 if [ -n "$OPT_SJIS" ]; then
   info "run mkgmap. Encode:Shift-JIS."
-  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_SJIS} --output-dir=${PATH_OUTPUT}_sjis -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
+  java -Xmx32G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_SJIS} --output-dir=${PATH_OUTPUT}_sjis -c template.args --description="${DESCRIPTION}" ${PATH_TYP}
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
   mv ${PATH_OUTPUT}_sjis/gmapsupp.img ${PATH_OUTPUT}_sjis/gmapsupp-${NAME_MAP}-sjis.img
 fi
@@ -183,7 +197,8 @@ fi
 # ascii
 if [ -n "$OPT_ASCII" ]; then
   info "run mkgmap. Encode:ASCII."
-  java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_ASCII} --output-dir=${PATH_OUTPUT}_ascii -c template_roman.args --description="${DESCRIPTION}" ${PATH_TYP}
+  java -Xmx32G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_ASCII} --output-dir=${PATH_OUTPUT}_ascii -c template_roman.args --description="${DESCRIPTION}" ${PATH_TYP}
+  #info "debug::java -Xmx8G -jar ${PATH_MKGMAP} ${PARAM_COMMON} ${PARAM_ASCII} --output-dir=${PATH_OUTPUT}_ascii -c template_roman.args --description="${DESCRIPTION}" ${PATH_TYP}"
   rtn=$?; [ $rtn -ne 0 ] && warn "status=${rtn}"
   mv ${PATH_OUTPUT}_ascii/gmapsupp.img ${PATH_OUTPUT}_ascii/gmapsupp-${NAME_MAP}-ascii.img
 fi

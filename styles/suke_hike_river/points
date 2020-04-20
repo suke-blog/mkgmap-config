@@ -1,0 +1,27 @@
+# -------------------------------------------------------------------
+# This is the default mkgmap style file for converting OSM nodes
+# into Garmin POIs.
+# Any line prefaced with # is a comment and will not be applied.
+# Each line is a rule, of the generalised format:
+#  OSM_tag(s)_to_match  [Garmin_type_code resolution]
+# See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
+# and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
+# for more information.
+
+include 'inc/name';
+
+# Edge 705 displays 0x650a,0x6511,0x6512,0x6513,0x6603,0x6614 as hollow white circles, no menu
+natural=cave_entrance [0x6601 resolution 24]
+natural=cape [0x6606 resolution 24]
+natural=cliff [0x6607 resolution 24]
+natural=peak {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6616 resolution 20]
+natural=rock [0x6614 resolution 24]
+natural=volcano [0x2c0c resolution 20]
+
+include 'inc/water_points';
+#include 'inc/landuse_points';
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+name=* { name '${name}' }
+#include 'inc/address';
