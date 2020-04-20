@@ -5,33 +5,63 @@
 # MAP,FAMILY_ID,PRODUCT_ID,Map name,description,style_name,typ_name,coding[u,j,a],transparent[y/n],DEM[y/n]
 #
 
-# for OSM with contour
+OUTPUT,output
+
+### 統合版
+# 統合版(DEM10)
 MAP,./work/japan-osm-with-contour-dem10
-#SPLITTER,63500001,./work/japan-osm-with-contour-dem10.osm.pbf,y
-#MKGMAP,6350,1,JAPAN-OSM-with-contour-DEM10,JAPAN-OSM-with-contour-DEM10-201811,suke_hike,suke_hike.typ,uja,n,y
+SPLITTER,63500001,./work/japan-osm-with-contour-dem10.osm.pbf,y
+MKGMAP,6350,1,JAPAN-OSM-with-contour-DEM10,JAPAN-OSM-with-contour-DEM10-202004,suke_hike,suke_hike.typ,uja,n,y
 
+# 統合版(DEM5+DEM10)
 MAP,./work/japan-osm-with-contour-dem5
-#SPLITTER,63510001,./work/japan-osm-with-contour-dem5.osm.pbf,y
-#MKGMAP,6351,1,JAPAN-OSM-with-contour-DEM5,JAPAN-OSM-with-contour-DEM5-201811,suke_hike,suke_hike.typ,ua,n,y
+SPLITTER,63510001,./work/japan-osm-with-contour-dem5.osm.pbf,y
+MKGMAP,6351,1,JAPAN-OSM-with-contour-DEM5,JAPAN-OSM-with-contour-DEM5-202004,suke_hike,suke_hike.typ,ua,n,y
 
-# for contour only
-MAP,./work/japan-contour-only-dem10
+
+### 要素のみ版
+## ベースマップ
+# ベースマップ(OSM+DEM) - POI無し
+MAP,./work/japan-osm
+SPLITTER,63700001,./work/japan-latest.osm.pbf,y
+MKGMAP,6370,1,JAPAN-OSM,JAPAN-OSM-202004,suke_hike_noPOI,suke_hike.typ,ua,n,y
+
+# ベースマップ(山と河川)
+OUTPUT,output_river
+MKGMAP,6370,1,JAPAN-OSM-MTRIVER,JAPAN-OSM-MTRIVER-202004,suke_hike_river,suke_hike.typ,ua,n,y
+
+# POIのみ
+OUTPUT,output
+MAP,./work/japan-osm-poi
+SPLITTER,63800001,./work/japan-latest.osm.pbf,y
+MKGMAP,6380,1,JAPAN-OSM-POI,JAPAN-OSM-POI-202004,suke_hike_POIonly,suke_hike.typ,uja,20,n
+
+# チャリダー仕様(仮)
+
+
+## 等高線
+OUTPUT,output
+# 等高線(DEM10)
+#MAP,./work/japan-contour-only-dem10
 #SPLITTER,63600001,./work/japan-contour-dem10b.osm.pbf,n
-#MKGMAP,6360,1,JAPAN-contour-only-DEM10,JAPAN-contour-only-DEM10-201811,suke_hike,suke_hike.typ,a,y,y
+#MKGMAP,6360,1,JAPAN-contour-only-DEM10,JAPAN-contour-only-DEM10-201909,suke_hike,suke_hike.typ,a,y,n
 
-MAP,./work/japan-contour-only-dem5
+# 等高線(DEM5)
+#MAP,./work/japan-contour-only-dem5
 #SPLITTER,63610001,./work/japan-contour-dem5.osm.pbf,n
-#MKGMAP,6361,1,JAPAN-contour-only-DEM5,JAPAN-contour-only-DEM5-201811,suke_hike,suke_hike.typ,a,y,y
+#MKGMAP,6361,1,JAPAN-contour-only-DEM5,JAPAN-contour-only-DEM5-201909,suke_hike,suke_hike.typ,a,y,n
 
-# for contour only(5m)
-MAP,./work/japan-contour-only-dem5-5m-hokkaido
+# 等高線(DEM5, 5m補助線) - 北海道
+#MAP,./work/japan-contour-only-dem5-5m-hokkaido
 #SPLITTER,63620001,./work/japan-contour-dem5-hokkaido-5m.osm.pbf,n
-#MKGMAP,6362,1,JAPAN-contour-only-DEM5-5m-hokkaido,JAPAN-contour-only-DEM5-5m-hokkaido-201811,suke_hike,suke_hike.typ,a,y,y
+#MKGMAP,6362,1,JAPAN-contour-only-DEM5-5m-hokkaido,JAPAN-contour-only-DEM5-5m-hokkaido-201909,suke_hike,suke_hike.typ,a,y,n
 
-MAP,./work/japan-contour-only-dem5-5m-honshu
-#SPLITTER,63623001,./work/japan-contour-dem5-honshu-5m.osm.pbf,n
-#MKGMAP,6363,1,JAPAN-contour-only-DEM5-5m-honshu,JAPAN-contour-only-DEM5-5m-honshu-201811,suke_hike,suke_hike.typ,a,y,y
+# 等高線(DEM5, 5m補助線) - 本州
+#MAP,./work/japan-contour-only-dem5-5m-honshu
+#SPLITTER,63630001,./work/japan-contour-dem5-honshu-5m.osm.pbf,n
+#MKGMAP,6363,1,JAPAN-contour-only-DEM5-5m-honshu,JAPAN-contour-only-DEM5-5m-honshu-201909,suke_hike,suke_hike.typ,a,y,n
 
-MAP,./work/japan-contour-only-dem5-5m-kyushu-sikoku-okinawa
-#SPLITTER,63626001,./work/japan-contour-dem5-kyushu-sikoku-okinawa-5m.osm.pbf,n
-MKGMAP,6364,1,JAPAN-contour-only-DEM5-5m-kyushu-sikoku-okinawa,JAPAN-contour-only-DEM5-5m-kyushu-sikoku-201811,suke_hike,suke_hike.typ,a,y,y
+# 等高線(DEM5, 5m補助線) - 九州,四国,沖縄
+#MAP,./work/japan-contour-only-dem5-5m-kyushu-sikoku-okinawa
+#SPLITTER,63640001,./work/japan-contour-dem5-kyushu-sikoku-okinawa-5m.osm.pbf,n
+#MKGMAP,6364,1,JAPAN-contour-only-DEM5-5m-kyushu-sikoku-okinawa,JAPAN-contour-only-DEM5-5m-kyushu-sikoku-201909,suke_hike,suke_hike.typ,a,y,n
