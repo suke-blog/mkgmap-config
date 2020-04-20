@@ -34,7 +34,16 @@ PATH_TARGET=$1
 info "convert start"
 
 # convert osm, utf8 to ascii(romaji)
-find ${PATH_TARGET} -name "*.pbf" -exec sh -c "osmconvert {} --drop-author --drop-version | perl  ./rep_list_pre.pl | iconv -c -f UTF-8 -t SHIFT-JIS | kakasi -Ha -Ka -Ja -Ea -ka  ./kakasi-ext-dic/SKK-JISYO.geo ./kakasi-ext-dic/SKK-JISYO.station | osmconvert - --out-pbf -o={}.roman.pbf" \;
+#find ${PATH_TARGET} -name "*.pbf" -exec sh -c "osmconvert {} --drop-author --drop-version | perl  ./rep_list_pre.pl | iconv -c -f UTF-8 -t SHIFT-JIS | kakasi -Ha -Ka -Ja -Ea -ka  ./kakasi-ext-dic/SKK-JISYO.geo ./kakasi-ext-dic/SKK-JISYO.station | osmconvert - --out-pbf -o={}.roman.pbf" \;
+
+# add dd for double buffer
+#CMD_DD_BUF="dd bs=10M | dd bs=10M"
+#CMD_DD_BUF="pv -pterbTCB 1G"
+#find ${PATH_TARGET} -name "*.pbf" -exec sh -c "osmconvert {} --drop-author --drop-version | ${CMD_DD_BUF} | perl  ./rep_list_pre.pl | ${CMD_DD_BUF} | iconv -c -f UTF-8 -t SHIFT-JIS | ${CMD_DD_BUF} | kakasi -Ha -Ka -Ja -Ea -ka  ./kakasi-ext-dic/SKK-JISYO.geo ./kakasi-ext-dic/SKK-JISYO.station | ${CMD_DD_BUF} | osmconvert - --out-pbf -o={}.roman.pbf" \;
+
+# use xargs for multi-thread
+THREAD_NUM=15
+find ${PATH_TARGET} -name "*.pbf" | xargs -t -I{} -P${THREAD_NUM} -n1 sh -c "osmconvert {} --drop-author --drop-version | perl  ./rep_list_pre.pl | iconv -c -f UTF-8 -t SHIFT-JIS | kakasi -Ha -Ka -Ja -Ea -ka  ./kakasi-ext-dic/SKK-JISYO.geo ./kakasi-ext-dic/SKK-JISYO.station | osmconvert - --out-pbf -o={}.roman.pbf"
 
 # convert template.args
 cat ${PATH_TARGET}/template.args | sed -e "s/\.osm\.pbf/\.osm\.pbf\.roman.pbf/g;" > ${PATH_TARGET}/template_roman.args

@@ -30,28 +30,35 @@ OUTPUT_OSM_CONTOUR_DEM5="./work/japan-osm-with-contour-dem5.osm"
 [ ! -f ${CONTOUR_DEM5} ] && error "cannot find ${CONTOUR_DEM5}."
 
 # for Garmin
+info "make map with contour for garmin."
 if [ ! -f "${OUTPUT_OSM_CONTOUR_DEM10}.pbf" ]; then
-  osmconvert --out-o5m ${TARGET_OSM} | osmconvert --out-pbf - ${CONTOUR_DEM10} -o=${OUTPUT_OSM_CONTOUR_DEM10}.pbf
+  osmconvert --out-o5m ${TARGET_OSM} | osmconvert --out-pbf - ${CONTOUR_DEM10} -o=${OUTPUT_OSM_CONTOUR_DEM10}.pbf &
 else
   warn "file:${OUTPUT_OSM_CONTOUR_DEM10}.pbf is exist. skipped."
 fi
 
 if [ ! -f "${OUTPUT_OSM_CONTOUR_DEM5}.pbf" ]; then
-  osmconvert --out-o5m ${TARGET_OSM} | osmconvert --out-pbf - ${CONTOUR_DEM5} -o=${OUTPUT_OSM_CONTOUR_DEM5}.pbf
+  osmconvert --out-o5m ${TARGET_OSM} | osmconvert --out-pbf - ${CONTOUR_DEM5} -o=${OUTPUT_OSM_CONTOUR_DEM5}.pbf &
 else
   warn "file:${OUTPUT_OSM_CONTOUR_DEM5}.pbf is exist. skipped."
 fi
 
+wait
+info "done."
 
 # for Mapsme
+info "make map with contour for mapsme."
 if [ ! -f "${OUTPUT_OSM_CONTOUR_DEM10}.o5m" ]; then
-  osmconvert --out-o5m ${OUTPUT_OSM_CONTOUR_DEM10}.pbf --modify-way-tags="ele= to name=" -o=${OUTPUT_OSM_CONTOUR_DEM10}.o5m
+  osmconvert --out-o5m ${OUTPUT_OSM_CONTOUR_DEM10}.pbf --modify-way-tags="ele= to name=" -o=${OUTPUT_OSM_CONTOUR_DEM10}.o5m &
 else
   warn "file:${OUTPUT_OSM_CONTOUR_DEM10}.o5m is exist. skipped."
 fi
 
 if [ ! -f "${OUTPUT_OSM_CONTOUR_DEM5}.o5m" ]; then
-  osmconvert --out-o5m ${OUTPUT_OSM_CONTOUR_DEM5}.pbf --modify-way-tags="ele= to name=" -o=${OUTPUT_OSM_CONTOUR_DEM5}.o5m
+  osmconvert --out-o5m ${OUTPUT_OSM_CONTOUR_DEM5}.pbf --modify-way-tags="ele= to name=" -o=${OUTPUT_OSM_CONTOUR_DEM5}.o5m &
 else
   warn "file:${OUTPUT_OSM_CONTOUR_DEM5}.o5m is exist. skipped."
 fi
+
+wait
+info "done."
