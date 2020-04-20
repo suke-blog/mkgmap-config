@@ -67,7 +67,8 @@ PATH_OUTPUT=$2
 
 mkdir -p ${PATH_OUTPUT}
 
-PARAM_JAVA_XMX=26
+#PARAM_JAVA_XMX=26
+PARAM_JAVA_XMX=64
 PARAM_RESOLUTION=13
 
 PARAM_COMMON=" --keep-complete=true --search-limit=10000000 --max-areas=2048 --mapid=${MAP_ID} --output-dir=${PATH_OUTPUT}"
@@ -82,6 +83,7 @@ fi
 
 # try split osm to tiles
 for res in 11 12 13 14; do
+#for res in 13 12 11 14; do
   info "start process. mapid=${MAP_ID}, resolution=${res}"
   java -Xmx${PARAM_JAVA_XMX}G -jar $PATH_SPLITTER ${PARAM_COMMON} --resolution=${res} ${PATH_OSM} &
   pid_splitter=$!
